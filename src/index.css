@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&family=Special+Elite&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#141414] text-[#F5EEDC] font-sans antialiased overflow-x-hidden;
+  }
+
+  ::selection {
+    @apply bg-[#F5CA3D] text-[#141414];
+  }
+}
+
+/* Halftone dot pattern on cream/yellow background */
+.halftone-dark {
+  background-image: radial-gradient(circle, #141414 1.15px, transparent 1.25px);
+  background-size: 14px 14px;
+}
+
+/* Halftone dot pattern on dark ink background */
+.halftone-light {
+  background-image: radial-gradient(circle, rgba(245, 238, 220, 0.22) 1.15px, transparent 1.25px);
+  background-size: 14px 14px;
+}
+
+/* Comic Speech Bubble Button Tails */
+.bubble-btn {
+  position: relative;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.bubble-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -7px;
+  left: 18px;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 2px solid transparent;
+  border-top: 8px solid #141414;
+}
+
+.bubble-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 #141414;
+}
+
+.bubble-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #141414;
+}
+
+/* Speech Bubble User Pill Tail */
+.bubble-pill::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 24px;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 2px solid transparent;
+  border-top: 7px solid #141414;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
